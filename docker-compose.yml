@@ -1,0 +1,30 @@
+version: "3.8"
+services:
+  auth-service:
+    build: ./auth-service
+    ports:
+      - "8081:8081"
+    depends_on:
+      - mysql
+
+  movie-service:
+    build: ./movie-service
+    ports:
+      - "8082:8082"
+    depends_on:
+      - mysql
+
+  booking-service:
+    build: ./booking-service
+    ports:
+      - "8083:8083"
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mysql:8.0
+    container_name: cinevision-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3306:3306"
