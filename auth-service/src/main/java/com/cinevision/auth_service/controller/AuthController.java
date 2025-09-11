@@ -18,7 +18,7 @@ public class AuthController {
     @PostMapping("/register")
     public ResponseEntity<User> register(@RequestBody UserDTO userDTO) {
         User user = userService.registerUser(userDTO);
-        return ResponseEntity.status(201).body(user);
+        return ResponseEntity.ok(user);
     }
 
     @GetMapping("/user/{username}")
