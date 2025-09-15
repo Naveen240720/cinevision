@@ -33,7 +33,7 @@ jobs:
       - name: Build with Maven (skip tests)
         run: mvn -B -f auth-service/pom.xml clean package -DskipTests
 
-      # Log in to Docker Hub
+      # ✅ Log in to Docker Hub
       - name: Log in to Docker Hub
         uses: docker/login-action@v2
         with:
@@ -43,4 +43,7 @@ jobs:
       # Build and Push Docker image
       - name: Build and Push Docker image
         run: |
-          IMAGE_NAME=naveen24072_
+          IMAGE_NAME=naveen240720/springboot-backend
+          IMAGE_TAG=auth-latest
+          docker build -t $IMAGE_NAME:$IMAGE_TAG ./auth-service
+          docker push $IMAGE_NAME:$IMAGE_TAG
