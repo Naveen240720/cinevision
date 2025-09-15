@@ -21,7 +21,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # Set up JDK 17
+      # Set up JDK 17 (Spring Boot 3.x requires 17+)
       - name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
@@ -29,7 +29,7 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
-      # Build with Maven
+      # Build with Maven (skip tests to avoid DB issues in CI)
       - name: Build with Maven (skip tests)
         run: mvn -B -f auth-service/pom.xml clean package -DskipTests
 
