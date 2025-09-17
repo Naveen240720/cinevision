@@ -5,10 +5,11 @@ spring:
   application:
     name: auth-service
 
-  datasource:
-    url: jdbc:mysql://localhost:3306/cinevision?useSSL=false&allowPublicKeyRetrieval=true
-    username: root
-    password: 12345
+  spring:
+    datasource:
+      url: jdbc:mysql://${MYSQL_HOST}:${MYSQL_PORT}/${MYSQL_DATABASE}
+      username: ${MYSQL_USER}
+      password: ${MYSQL_PASSWORD}
 
   jpa:
     hibernate:
