@@ -1,9 +1,0 @@
-{
-  "services": [
-    {
-      "name": "Auth Service",
-      "builder": "dockerfile",
-      "rootDirectory": "auth-service"
-    }
-  ]
-}
