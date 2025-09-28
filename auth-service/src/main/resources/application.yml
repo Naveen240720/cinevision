@@ -5,15 +5,15 @@ spring:
   application:
     name: auth-service
 
-  spring:
-    datasource:
-      url: jdbc:mysql://${MYSQL_HOST}:${MYSQL_PORT}/${MYSQL_DATABASE}
-      username: ${MYSQL_USER}
-      password: ${MYSQL_PASSWORD}
+  datasource:
+    url: jdbc:mysql://localhost:3306/cinevision
+    username: root
+    password: 12345
+    driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
     hibernate:
-      ddl-auto: validate
+      ddl-auto: update
     show-sql: true
     properties:
       hibernate:
